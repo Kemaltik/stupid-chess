@@ -1,28 +1,25 @@
 import pygame
-from board import *
 
-if __name__ == "__main__":
-    pygame.init()
-    screen = pygame.display.set_mode((1280, 720))
-    pygame.display.set_caption("Chess")
-    clock = pygame.time.Clock()
-    running = True
+pygame.init()
 
-    while running:
-        # poll for events
-        # pygame.QUIT event means the user clicked X to close your window
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+screen = pygame.display.set_mode((1280,720))
 
-        # fill the screen with a color to wipe away anything from last frame
-        screen.fill("purple")
+clock = pygame.time.Clock()
 
-        # RENDER YOUR GAME HERE
+while True:
+    # Process player inputs.
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            raise SystemExit
 
-        # flip() the display to put your work on screen
-        pygame.display.flip()
+    # Do logical updates here.
+    # ...
 
-        clock.tick(60)
+    screen.fill("black")  # Fill the display with a solid color
 
-    pygame.quit()
+    # Render the graphics here.
+    # ...
+
+    pygame.display.flip()  # Refresh on-screen display
+    clock.tick(60)         # wait until next frame (at 60 FPS)
