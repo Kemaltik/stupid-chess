@@ -1,21 +1,25 @@
-def get_position(board : list, target):
+def search_for_target(board : list, target, object_search = False):
     #gets the row
     position_x = 0
     position_y = 0
     for row in board:
-        if target in row:
-            for position in row:
-                if position == target:
+        if object_search:
+            for obj in row:
+                if hasattr(obj, "name") and obj.name in target:
                     return position_x, position_y
-                else:
-                    position_x = position_x + 1
+                else: position_x = position_x + 1
         else:
-            position_y = position_y + 1
-    return "Search failed"
+            if target in row:
+                for position in row:
+                    if position == target:
+                        return position_x, position_y
+                    else:
+                        position_x = position_x + 1
+        position_y = position_y + 1
+        position_x = 0
+    return "Search Failed"
 
-class Piece:
-
-class Pawn(Piece):
+class Pawn:
     def __init__(self, colour : str, name : str):
         self.colour = colour
         self.name = name
@@ -53,5 +57,5 @@ def initialize_board()->list:
     return chessboard
 
 chessboard = initialize_board()
-print(get_position(chessboard))
+print(get_position(chessboard, "a2", True))
 
