@@ -11,13 +11,16 @@ def get_position(board : list, target):
                     position_x = position_x + 1
         else:
             position_y = position_y + 1
+    return "Search failed"
 
-class Pawn:
+class Piece:
+
+class Pawn(Piece):
     def __init__(self, colour : str, name : str):
         self.colour = colour
         self.name = name
-        has_moved = False
-        piece_type = "pawn"
+        self.has_moved = False
+        self.piece_type = "pawn"
 
 def initialize_board()->list:
     wa2 = Pawn("white", "a2")
@@ -50,5 +53,5 @@ def initialize_board()->list:
     return chessboard
 
 chessboard = initialize_board()
-print(get_position(chessboard, wa2))
+print(get_position(chessboard))
 
