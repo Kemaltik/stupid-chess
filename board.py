@@ -1,3 +1,12 @@
+def get_postion(board : list, target):
+    position_x = 0
+    position_y = 0
+    for row in board:
+        if target in row:
+            for column in row:
+        else:
+            position_y = position_y + 1
+
 class Pawn:
     def __init__(self, colour : str):
         self.colour = colour
@@ -34,8 +43,5 @@ def initialize_board()->list:
     return chessboard
 
 chessboard = initialize_board()
-for row in chessboard:
-    for space in row:
-        print(space, end=" ")
-    print()
+
 
