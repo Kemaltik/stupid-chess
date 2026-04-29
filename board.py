@@ -1,12 +1,35 @@
+class Pawn:
+    def __init__(self, colour : str):
+        self.colour = colour
+        has_moved = False
+
 def initialize_board()->list:
-    row_8 = "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"
-    row_7 = "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7"
-    row_6 = "a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6"
-    row_5 = "a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5"
-    row_4 = "a4", "b4", "c4", "d4", "e4", "f4", "g4", "h4"
-    row_3 = "a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3"
-    row_2 = "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"
-    row_1 = "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"
+    wa2 = Pawn("white")
+    wb2 = Pawn("white")
+    wc2 = Pawn("white")
+    wd2 = Pawn("white")
+    we2 = Pawn("white")
+    wf2 = Pawn("white")
+    wg2 = Pawn("white")
+    wh2 = Pawn("white")
+
+    ba8 = Pawn("black")
+    bb8 = Pawn("black")
+    bc8 = Pawn("black")
+    bd8 = Pawn("black")
+    be8 = Pawn("black")
+    bf8 = Pawn("black")
+    bg8 = Pawn("black")
+    bh8 = Pawn("black")
+
+    row_8 =  "x", "x", "x", "x", "x", "x", "x", "x"
+    row_7 =  ba8, bb8, bc8, bd8, be8, bf8, bg8, bh8
+    row_6 =  "x", "x", "x", "x", "x", "x", "x", "x"
+    row_5 =  "x", "x", "x", "x", "x", "x", "x", "x"
+    row_4 =  "x", "x", "x", "x", "x", "x", "x", "x"
+    row_3 =  "x", "x", "x", "x", "x", "x", "x", "x"
+    row_2 =  wa2, wb2, wc2, wd2, we2, wf2, wg2, wh2
+    row_1 =  "x", "x", "x", "x", "x", "x", "x", "x"
     chessboard = [row_8, row_7, row_6, row_5, row_4, row_3, row_2, row_1, row_1]
     return chessboard
 
@@ -15,3 +38,4 @@ for row in chessboard:
     for space in row:
         print(space, end=" ")
     print()
+
