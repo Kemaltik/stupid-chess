@@ -19,12 +19,20 @@ def search_for_target(board : list, target, object_search = False):
         position_x = 0
     return "Search Failed"
 
+def search_for_occupation(board : list, position_x : int, position_y : int):
+    if board[position_y][position_x] == "x":
+        return "x"
+    else:
+        return board[position_y][position_x].name
+
 class Pawn:
     def __init__(self, colour : str, name : str):
         self.colour = colour
         self.name = name
         self.has_moved = False
         self.piece_type = "pawn"
+        self.occupation = "piece"
+
 
 def initialize_board()->list:
     wa2 = Pawn("white", "a2")
@@ -57,5 +65,5 @@ def initialize_board()->list:
     return chessboard
 
 chessboard = initialize_board()
-print(get_position(chessboard, "a2", True))
+print(search_for_occupation(chessboard, 2, 1))
 
